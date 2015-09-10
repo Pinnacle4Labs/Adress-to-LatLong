@@ -25,6 +25,7 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+//INITIALIZING 
     Button map_btn,b2,btn_map1;
     double longitude,latitude;
     EditText e,e2,e3;
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
+// INTANCES MADE 
         map_btn=(Button) findViewById(R.id.button);
         map_btn.setOnClickListener(this);
         b2=(Button) findViewById(R.id.button2);
@@ -48,11 +49,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         e3=(EditText)findViewById(R.id.editText3);
         btn_map1=(Button) findViewById(R.id.btn_map1);
 
+//GEOCODER IS USED TO GET THE LOCATION
         geocoder = new Geocoder(this, Locale.getDefault());
 
     }
 
-
+//THIS FUNTION WILL USE ADDRESS TO FETCH THE LAT LONG ON THAT PARTICULAR ADDRESS
     @Override
     public void onClick(View v) {
             try {
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
            e3.setText(String.valueOf(longitude));
         }
 
+//THIS FUNTION WILL GET THE LAT LONG FROM EDITTEXT AND USE IT ON GEOCODER TO FETCH ADDRESS ON THAT PARTICLAR LOCATION
 
     public  void fetchAddress(View view) throws IOException {
         latitude = Double.parseDouble(e2.getText().toString());
@@ -82,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
+// THIS FUNTION WILL BUNDLE THE LATITUDE AND LONGITUDE FOR MAIN2ACTIVITY
     public void coordinate(View view)
     {
         Intent intent=new Intent(getApplication(),Main2Activity.class);
