@@ -24,12 +24,14 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-
+        
+        
+// INTENT USED TO UNBUNDLE THE SENT DATA 
         Intent intent=getIntent();
         longitude=intent.getDoubleExtra("longitude",longitude);
         latitude=intent.getDoubleExtra("latitude",latitude);
         DAVAO = new LatLng(latitude, longitude);
-
+// MAP FRAGMENT IS USED TO SHOW THE LOCATION ON GOOGLE MAPS 
     map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
     Marker davao = map.addMarker(new MarkerOptions().position(DAVAO));
     // zoom in the camera to Davao city
